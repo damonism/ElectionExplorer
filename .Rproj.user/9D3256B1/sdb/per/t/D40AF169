@@ -1,0 +1,25 @@
+{
+    "contents" : "",
+    "created" : 1463538111123.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "D40AF169",
+    "lastKnownWriteTime" : 7011605692497750387,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "9vz656ua6z",
+        "caption" : "tcp_pp_alp",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=tcp_pp_alp&cache_key=9vz656ua6z",
+        "displayedObservations" : 7751,
+        "environment" : "",
+        "object" : "tcp_pp_alp",
+        "totalObservations" : 7751,
+        "variables" : 74
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "type" : "r_dataframe"
+}

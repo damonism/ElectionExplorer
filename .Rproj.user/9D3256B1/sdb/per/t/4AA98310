@@ -1,0 +1,25 @@
+{
+    "contents" : "",
+    "created" : 1463555157658.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "4AA98310",
+    "lastKnownWriteTime" : 7011605692497750387,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "h1pqaknz5z",
+        "caption" : "boundaries_new_2016",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=boundaries_new_2016&cache_key=h1pqaknz5z",
+        "displayedObservations" : 150,
+        "environment" : "",
+        "object" : "boundaries_new_2016",
+        "totalObservations" : 150,
+        "variables" : 9
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "type" : "r_dataframe"
+}

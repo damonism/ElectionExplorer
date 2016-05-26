@@ -1,0 +1,28 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1464083099267.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "BB767C3E",
+    "lastKnownWriteTime" : -4598733281825914874,
+    "last_content_update" : 1464083099267,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "rhy7rtt10m",
+        "caption" : "boundaries_new_2016",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=boundaries_new_2016&cache_key=rhy7rtt10m",
+        "displayedObservations" : 150,
+        "environment" : "",
+        "object" : "boundaries_new_2016",
+        "totalObservations" : 150,
+        "variables" : 14
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

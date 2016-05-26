@@ -1,0 +1,18 @@
+{
+    "contents" : "require(sp)\nrequire(rgdal)\n\n# Load the reduced detail map of CEDs from Mapshaper.org\naust_2013 <- readOGR(\"//home4/mullerd$/My Documents/Data/2013 Commonwealth Boundaries/Reduced\", \"COM20111216_ELB_region\")\ntpp_2013 <- read.csv(\"//HOME4/mullerd$/My Documents/Data/2013 Federal Election/2013 HoR TPP by Division.csv\")\naust_2013_tpp <- merge(aust_2013, tpp_2013, by.x = \"ELECT_DIV\", by.y = \"DivisionNm\")\n\naust_2013_tpp_coalition <- aust_2013_tpp[aust_2013_tpp$PartyAb %in% c(\"LP\", \"NP\", \"LNP\"),]\naust_2013_tpp_labor <- aust_2013_tpp[aust_2013_tpp$PartyAb %in% c(\"ALP\", \"CLP\"),]\n\nlibrary(leaflet)\n\npal_coalition <- colorNumeric(\n  palette = \"Blues\", \n  domain = c(48,74)\n)\n\npal_labor <- colorNumeric(\n  palette = \"Reds\", \n  domain = c(48,74)\n)\n\ncontent_coalition <- paste(\n  \"<b>\", aust_2013_tpp_coalition$ELECT_DIV, \"</b><br/>\",\n  \"Party: \", aust_2013_tpp_coalition$PartyAb, \"<br/>\",\n  \"Coalition TPP Votes: \", aust_2013_tpp_coalition$Liberal.National.Coalition.Votes, \"<br/>\",\n  \"ALP TPP Votes: \", aust_2013_tpp_coalition$Australian.Labor.Party.Votes, \"<br/>\",\n  \"Coalition TPP Percentage: \", aust_2013_tpp_coalition$Liberal.National.Coalition.Percentage, \"&#37;<br/>\",\n  \"ALP TPP Percentage: \", aust_2013_tpp_coalition$Australian.Labor.Party.Percentage, \"&#37;<br/>\"\n)\n\ncontent_labor <- paste(\n  \"<b>\", aust_2013_tpp_labor$ELECT_DIV, \"</b><br/>\",\n  \"Party: \", aust_2013_tpp_labor$PartyAb, \"<br/>\",\n  \"Coalition TPP Votes: \", aust_2013_tpp_labor$Liberal.National.Coalition.Votes, \"<br/>\",\n  \"ALP TPP Votes: \", aust_2013_tpp_labor$Australian.Labor.Party.Votes, \"<br/>\",\n  \"Coalition TPP Percentage: \", aust_2013_tpp_labor$Liberal.National.Coalition.Percentage, \"&#37;<br/>\",\n  \"ALP TPP Percentage: \", aust_2013_tpp_labor$Australian.Labor.Party.Percentage, \"&#37;<br/>\"\n)\n\nm <- leaflet()\n\nm %>% \n  addProviderTiles(\"CartoDB.Positron\") %>% \n  addPolygons(data = aust_2013_tpp_coalition, color = ~pal_coalition(Liberal.National.Coalition.Percentage), popup = content_coalition, stroke = FALSE) %>% \n  addPolygons(data = aust_2013_tpp_labor, color = ~pal_labor(Australian.Labor.Party.Percentage), popup = content_labor, stroke = FALSE)",
+    "created" : 1463527988813.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2891842030",
+    "id" : "6486FD9D",
+    "lastKnownWriteTime" : 1463528207,
+    "path" : "//home4/mullerd$/My Documents/Data/Electoral Map 2016/Electoral Map 2013.R",
+    "project_path" : "Electoral Map 2013.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

@@ -1,0 +1,25 @@
+{
+    "contents" : "",
+    "created" : 1463464438514.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "40829F44",
+    "lastKnownWriteTime" : 7011605692497750387,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "1jd8wtx6g4",
+        "caption" : "tcp_by_pp",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=tcp_by_pp&cache_key=1jd8wtx6g4",
+        "displayedObservations" : "18292",
+        "environment" : "",
+        "object" : "tcp_by_pp",
+        "totalObservations" : "18292",
+        "variables" : "15"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "type" : "r_dataframe"
+}
