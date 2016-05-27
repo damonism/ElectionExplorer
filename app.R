@@ -78,8 +78,10 @@ library(rgdal)
 # boundaries_new_2016$RelMargin <- boundaries_new_2016$Margin
 # boundaries_new_2016$RelMargin[boundaries_new_2016$Notional == "ALP"] <- 0 - boundaries_new_2016$Margin[boundaries_new_2016$Notional == "ALP"]
 # 
-# # Add the 2013 boundaries
-# boundaries_2013 <- readOGR("2013 Commonwealth Boundaries", "COM20111216_ELB_region")
+# Add the 2013 boundaries
+if(!exists(boundaries_2013)) {
+  boundaries_2013 <- readOGR("2013 Commonwealth Boundaries", "COM20111216_ELB_region")
+}
 #
 # ##
 # ## Polling places
