@@ -164,10 +164,10 @@ ui <- fluidPage(
                                 "ALP Primary" = "alp",
                                 "Greens Primary" = "grn"),
                  selected = "tpp"),
-    # checkboxGroupInput("boundaries", "Boundaries",
-    #                    choices = list("2016 Notional Margin" = "margin",
-    #                                   "2016 Boundary" = "outline"),
-    #                    selected = "margin"),
+    checkboxGroupInput("boundaries", "Boundaries",
+                      choices = list("2016 Notional Margin" = "margin16",
+                                     "2016 Boundary" = "outline16"),
+                      selected = "margin16"),
     checkboxInput("no_ppvc", "Exclude pre-polls"),
     selectInput("division", "Zoom to Division", c("Select a division" = "", levels(boundaries_new_2016$ELECT_DIV)))
   )
@@ -263,6 +263,55 @@ server <- function(input, output) {
     )
     
     
+  })
+  
+  ## 
+  ## Show the 2016 boundaries
+  ## (Hopefully a more speedy way than last time)
+  ##
+  observe({
+  
+    boundaries_fill <- reactive({
+      if("margin16" %in% input$boundaries) {
+        return(TRUE)
+      } else {
+        return(FALSE)
+      }
+    })
+
+    boundaries_stroke <- reactive({
+      if("outline16" %in% input$boundaries) {
+        return(TRUE)
+      } else {
+        return(FALSE)
+      }
+    })
+    
+    boundaries_fillcolour <- colorNumeric(
+      palette = "RdBu", 
+      domain = boundaries_new_2016$RelMargin
+    )
+
+    boundaries_popup <- paste(
+      "<b>", htmlEscape(boundaries_new_2016$ELECT_DIV), "</b><br />",
+      "Notional Party:", htmlEscape(boundaries_new_2016$Notional), "<br />",
+      "Notional Margin:", htmlEscape(round(boundaries_new_2016$Margin, digits = 1)), "<br />",
+      "Held By:", htmlEscape(boundaries_new_2016$HeldBy), "<br />"
+    )
+
+    leafletProxy("map") %>%
+      addPolygons(data = "boundaries_new_2016",
+                  weight = 1, 
+                  stroke = boundaries_stroke(),
+                  opacity = 0.8, 
+                  fill = boundaries_fill(),
+                  fillColor = ~boundaries_fillcolour(boundaries_new_2016$RelMargin),
+                  fillOpacity = 0.2
+                  color = "#8856a7", 
+                  smoothFactor = 1, 
+                  popup = boundaries_popup,
+                  group = "2016 Boundary (2)")
+      )
   })
   
   ##
