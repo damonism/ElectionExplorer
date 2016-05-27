@@ -427,7 +427,7 @@ server <- function(input, output) {
     
     colour_pp <- reactive({
       if(input$polling_place_markers == "tpp") {
-        colour_pp_colours = c("Red", "White", "Blue")
+        colour_pp_colours = "RdBu")
       }
       if(input$polling_place_markers == "coa") {
         colour_pp_colours = "Blues"
