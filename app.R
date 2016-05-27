@@ -78,6 +78,9 @@ library(rgdal)
 # boundaries_new_2016$RelMargin <- boundaries_new_2016$Margin
 # boundaries_new_2016$RelMargin[boundaries_new_2016$Notional == "ALP"] <- 0 - boundaries_new_2016$Margin[boundaries_new_2016$Notional == "ALP"]
 # 
+# # Add the 2013 boundaries
+# boundaries_2013 <- readOGR("2013 Commonwealth Boundaries", "COM20111216_ELB_region")
+#
 # ##
 # ## Polling places
 # ##
@@ -234,7 +237,9 @@ server <- function(input, output) {
       addPolygons(color = ~pal_nonclassic(boundaries_2016_nonclassic$Margin), popup = content_nonclassic, 
                   stroke = TRUE, weight = 1, fillOpacity = 0.5, group = "Notional Margin")
     leafletProxy("map", data = boundaries_new_2016) %>% 
-      addPolylines(weight = 1, stroke = TRUE, opacity = 1, color = "Black", group = "2016 Boundary")
+      addPolylines(weight = 1, stroke = TRUE, opacity = 0.8, color = "#8856a7", group = "2016 Boundary")
+    leafletProxy("map", data = boundaries_2013) %>% 
+      addPolylines(weight = 1, stroke = TRUE, opacity = 0.8, color = "#9ebcda", smoothFactor = 1, group = "2013 Boundary")
 
     # For some reason this is *really* slow, at least on my computer.     
     if("margin" %in% input$boundaries){
